@@ -1,0 +1,33 @@
+project:
+  name: rsfabc_portfolio
+  protocol_version: stage1_design_freeze_v1.0
+  analysis_version: confirmatory_analysis_v1
+
+analysis:
+  batch_id: confirmatory_v1_20260809
+  output_dir: results/analysis/confirmatory_v1_20260809
+  primary_method: rsf_abc
+  primary_comparators:
+    - standard_abc
+    - pso
+    - de
+    - ew_n
+    - ew_k
+    - mv_k
+    - omega_milp
+  bootstrap_replicates: 5000
+  moving_block_length: 21
+  random_seed: 260809
+  diagnostic_comparators:
+    - standard_abc
+    - ht_abc
+    - rs_light_abc
+    - pso
+    - de
+  convergence_grid_start: 30
+  convergence_grid_step: 100
+  convergence_grid_end: 3000
+
+figures:
+  dpi: 320
+  formats: [png, pdf]

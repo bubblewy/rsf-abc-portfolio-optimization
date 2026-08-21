@@ -1,0 +1,48 @@
+project:
+  name: rsfabc_portfolio
+  protocol_version: stage1_design_freeze_v1.0
+
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  start_date: "2006-01-01"
+  end_date: "2025-12-31"
+  universes: [10, 30, 49]
+  primary_universe: 49
+  weighting: value
+
+portfolio:
+  cardinality: 10
+  lower_bound: 0.02
+  upper_bound: 0.30
+  transaction_cost_bps: 25
+  cost_amortization_days: 21
+  omega_threshold: 0.0
+  epsilon: 1.0e-12
+
+walk_forward:
+  train_days: 504
+  rebalance: monthly
+
+optimizers:
+  methods: [rsf_abc, standard_abc, ht_abc, rs_light_abc, pso, de]
+  population_size: 30
+  max_evaluations: 3000
+  abc_limit: 100
+  kappa: 4.0
+  student_df: 3.0
+  student_clip: 4.0
+  seed: 101
+  pso_inertia_start: 0.9
+  pso_inertia_end: 0.4
+  pso_c1: 1.49618
+  pso_c2: 1.49618
+  de_f: 0.5
+  de_cr: 0.9
+
+pilot:
+  windows: 1
+  full_path_seeds: 5
+  diagnostic_dates: 12
+  diagnostic_seeds: 30
+  robustness_stochastic_seeds: 3

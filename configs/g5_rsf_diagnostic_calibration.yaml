@@ -1,0 +1,61 @@
+project:
+  name: rsfabc_portfolio
+  protocol_version: g5_evidence_repair_v1.0
+  experiment_label: g5_rsf_diagnostic_calibration
+
+data:
+  processed_dir: data/processed
+  start_date: "2006-01-01"
+  end_date: "2025-12-31"
+
+walk_forward:
+  train_days: 504
+  rebalance: monthly
+
+portfolio_defaults:
+  cardinality: 10
+  lower_bound: 0.02
+  upper_bound: 0.30
+  transaction_cost_bps: 25
+  cost_amortization_days: 21
+  omega_threshold: 0.0
+  omega_threshold_mode: fixed
+  epsilon: 1.0e-12
+
+optimizers:
+  population_size: 30
+  max_evaluations: 3000
+  abc_limit: 100
+  kappa: 4.0
+  student_df: 3.0
+  student_clip: 4.0
+  fixed_explore_probability: 0.5
+  pso_inertia_start: 0.9
+  pso_inertia_end: 0.4
+  pso_c1: 1.49618
+  pso_c2: 1.49618
+  de_f: 0.5
+  de_cr: 0.9
+
+execution:
+  n_jobs: 6
+  stochastic_methods: [rsf_abc]
+  deterministic_methods: []
+  main_seeds: [101, 202, 303, 404, 505]
+  robustness_seeds: []
+  diagnostic_seeds:
+    start: 1001
+    end: 1030
+  kappa_sensitivity_seeds:
+    start: 1
+    end: 0
+  diagnostic_dates: 12
+
+main:
+  condition_id: main_n49_k10_c25_tau0
+  universe: 49
+
+robustness: []
+robustness_methods:
+  stochastic: []
+  deterministic: []

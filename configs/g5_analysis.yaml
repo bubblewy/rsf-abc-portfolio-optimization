@@ -1,0 +1,13 @@
+project:
+  name: rsfabc_portfolio
+  protocol_version: g5_evidence_repair_v1.0
+  analysis_version: g5_hierarchical_bootstrap_v1.0
+
+analysis:
+  batch_id: g5_evidence_repair_20260818
+  output_dir: results/analysis/g5_evidence_repair_20260818
+  primary_method: rsf_abc
+  comparators: [standard_abc, fixed_mix_abc]
+  bootstrap_replicates: 10000
+  moving_block_length: 21
+  random_seed: 260818

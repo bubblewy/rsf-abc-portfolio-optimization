@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Downloaded data and generated experiment artifacts
+data/
+results/
+submission/
+
+# Temporary files
+*.part
+*.tmp
+*.log
